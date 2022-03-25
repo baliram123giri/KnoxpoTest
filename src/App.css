@@ -36,3 +36,65 @@
     transform: rotate(360deg);
   }
 }
+.fs-7{
+  font-size: 13px;
+}
+.fs-8{
+  font-size: 10px;
+}
+/* list of repo start  */
+.user_repo .list{
+  max-height: 400px;
+  overflow-y: scroll;
+  margin-bottom: 72px;
+}
+.user_repo .add_repo{
+  background-color: rgb(238, 197, 84);
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 22;
+  bottom: 5%;
+  left: 2%;
+}
+/* list of repo end */
+/* add_repo_box  start */
+.add_repo_box{
+  position: absolute;
+  width: 100%;
+  height: 60vh;
+  z-index: 23;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.close{
+  cursor: pointer;
+  width: 18px;
+ user-select: none;
+}
+/* add_repo_box  end*/
+/* issuses_details  start */
+ .issuses_details .author .avtar{
+   width: 25px;
+ }
+ .repo_issuse, .dropdown-menu{
+   max-height: 400px;
+   overflow-y: scroll;
+   margin-bottom: 72px;
+ }
+
+/* issuses_details  end */
+/* Loader start*/
+.loader_box .load_circle{
+  width: 50px;
+  margin:100px auto;
+}
+/* Loader end*/
+
+@media screen and (max-width:768px){
+  .my_form{
+    width: 100% !important;
+    margin: 10px 20px;
+  }
+}
