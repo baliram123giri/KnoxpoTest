@@ -5,7 +5,7 @@ import * as types from "./Action-Type"
        repo:[],
        repoDetails:[],
        repoIssues:[],
-       loading:false,
+       commitDetails:[],
        showBox:true
    }
 //creating the reducer 
@@ -15,8 +15,7 @@ import * as types from "./Action-Type"
             case types.USER_REPO:
                 return{
                     ...state,
-                    repo:state.repo.concat(action.payload),
-                    loading:false
+                    repo:state.repo.concat(action.payload)
                 }
             case types.SHOW_BOX:
                 return{
@@ -26,14 +25,22 @@ import * as types from "./Action-Type"
             case types.REPO_ISSUES_DETAILS:
                 return{
                     ...state,
-                    repoIssues:action.payload,
-                    loading:true
+                    repoIssues:action.payload
                 }
             case types.REPO_DETAILS:
                 return{
                     ...state,
-                    repoDetails:action.payload,
-                    loading:true
+                    repoDetails:action.payload
+                }
+            case types.COMMITS_DETAILS:
+                return{
+                    ...state,
+                    commitDetails:action.payload
+                }
+            case types.DELETE_REPO:
+                return{
+                    ...state,
+                    repo:state.repo.filter((items)=>items.name!==action.payload)
                 }
             case types.HIDE_BOX:
                 return{

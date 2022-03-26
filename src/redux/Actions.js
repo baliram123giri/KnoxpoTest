@@ -35,13 +35,35 @@ const repoIssuesDetails = (data)=>{
         payload:data,
     }
 }
+//repoCommitDetails
+const repoCommitDetails = (data)=>{
+    return {
+        type:types.COMMITS_DETAILS,
+        payload:data,
+    }
+}
+//deleteRepo
+export const deleteRepo = (repoName)=>{
+    return {
+        type:types.DELETE_REPO,
+        payload:repoName,
+    }
+}
 //creating function for calling api endpoints
- export const userRepoCall = (user, repo2)=>{
+ export const userRepoCall = (user, repo2, checkRepo)=>{
      return function (dispatch){
          axios.get(`${config.host_url}/repos/${user}/${repo2}`)
          .then(res=>{
+            const checkExist = checkRepo.filter((e)=>{
+                return e.id === res.data.id
+            })
+            if(checkExist.length>0){
+                swal("Opps!", "Repository already exist!", "error");
+            }else{
              dispatch(userRepo(res.data))
              swal("Good Job", "Repository added successfully!", "success");
+            }
+            
          })
          .catch((e)=>{
             if(e.response.status===404){
@@ -75,6 +97,18 @@ const repoIssuesDetails = (data)=>{
             if(e.response.status===404){
                 swal("Opps!", "Repository details found!", "error");
             }
+         })
+     }
+ }
+//creating function for calling api endpoints
+ export const getCommitDetails = (user, repoName, branch)=>{
+     return function (dispatch){
+         axios.get(`${config.host_url}/repos/${user}/${repoName}/commits?sha=${branch}`)
+         .then(res=>{
+             dispatch(repoCommitDetails(res.data))
+         })
+         .catch((e)=>{
+          console.log(e.response)
          })
      }
  }
