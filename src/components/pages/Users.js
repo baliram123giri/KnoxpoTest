@@ -70,7 +70,7 @@ export default function Users() {
 
   return (
     <>
-    <AddRepo  />
+    <AddRepo />
       <div className="container my-3 my-md-5 user_repo">
         <div className="info ">
             <div className="row bg-white shadow border border-1 border-secondary">
@@ -115,7 +115,7 @@ export default function Users() {
                        </select>
                         <button className="btn btn-outline-secondary ms-1" type="button" onClick={issueShow} > ISSUES</button>
                       </div>
-                      {commitBoxShow ? <Commits/> : <>
+                      {commitBoxShow ? <Commits branch={branch}/> : <>
                       {issue && 
                         <div className="repo_issuse dono pe-3">
                         {

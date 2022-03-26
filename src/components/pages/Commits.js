@@ -1,15 +1,16 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-export default function Commits() {
+export default function Commits({branch}) {
 //state area
  const {commitDetails} = useSelector(state => state.data)
+
   return (
     <div className="container my-2 my-md-3 user_repo">
     <div className="info ">
         <div className="row bg-white shadow ">
             <div className="title text-center bg-white py-3 shadow-sm w-100">
-                <h6 className='text-black w-100 m-0 '>COMMITS: BRANCH NAME</h6>
+                <h6 className='text-black w-100 m-0 text-uppercase'>COMMITS: {branch}</h6>
             </div>
             <div className="col-12 my-2 p-0 ">
                <div className="commits_list_box ">
