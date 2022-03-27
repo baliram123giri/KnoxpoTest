@@ -5,7 +5,7 @@ import {getRepoDetails, showBox, getIssuesDetails, getCommitDetails, deleteRepo}
 import AddRepo from "./AddRepo"
 import Commits from './Commits'
 
-export default function Users() {
+export default function Repos() {
 //state area
   const [showDetails, setShowDetails] = useState(false)
   const [issue, setIssue] = useState(false)
@@ -137,7 +137,7 @@ export default function Users() {
                       {/* if nor repository  */}
                       {repoIssues.length===0 && (
                       <>
-                        <div className="text-center text-success">
+                        <div className="text-center text-success my-3">
                           <h6>No issues found!</h6>
                         </div>
                       </>

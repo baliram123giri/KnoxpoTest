@@ -1,9 +1,9 @@
 import './App.css';
-import Users from './components/pages/Users';
+import Repos from './components/pages/Repos';
 
 function App() {
   return (
-   <Users/>
+   <Repos/>
   );
 }
 
